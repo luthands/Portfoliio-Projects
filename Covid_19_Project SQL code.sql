@@ -150,3 +150,9 @@ Where dea.continent is not null
 
 select *
 from PercentPopulationVaccinated
+
+Select Location, Population,date, MAX(total_cases) as HighestInfectionCount,  Max((total_cases/population))*100 as PercentPopulationInfected
+From Covid_19_Project..CovidDeaths
+--Where location like '%states%'
+Group by Location, Population, date
+order by PercentPopulationInfected desc
